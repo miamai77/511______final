@@ -43,6 +43,7 @@ I did some initial cleaning of the data in excel. If this is not permissible in 
 I began by downloading information on race, education, income, poverty, age, and urban/rural status for all counties in the United States. I used the 2023 American Community survey for all topics except urban/rural status, for which only 2020 was available. Connecticut recently changed its counties into "planning regions" so there is discontinuity from 2021 onward that will hinder joining to religion data later on. So for Connecticut, I used the 2021 ACS.
 
 The following tables were downloaded:
+
 -   B01002: Median Age by Sex (2019-2023 ACS)
 -   B03002: Hispanic or Latino Origin by Race (2019-2023 ACS)
 -   B15003: Educational Attainment for the Population 25 and Older (2019-2023 ACS)
@@ -124,6 +125,15 @@ ggplot() + geom_sf(demog_geom, mapping=aes(fill=LDSRATE_2020)) + xlim(-125, -65)
 ggplot() + geom_sf(demog_geom, mapping=aes(fill=BPRTRATE_2020)) + xlim(-125, -65) + ylim(23, 50) + scale_fill_gradient2(low="white", high="blue", limits = c(0, 30), oob = scales::squish) + labs(title="Black Protestant Adherence Rate by County", fill="Adherents per 1000 pop.")
 ```
 
+# Cleaning Religion Data
+
+# Loading Pew and PRRI Polling Data
+
+# Loading State- and Metro- Level Socioeconomic Data for Model Training
+
+# Variable Importance
+
+# Predicting County-Level RWA
 
 # Results
 
