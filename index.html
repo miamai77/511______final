@@ -205,7 +205,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Upon the creation of an account, one has free access to all their data. However, after ample research, I didn’t find a way to directly data-download from their website into the R workspace. Thus, I had to do it manually.</p>
 <p>I did some initial cleaning of the data in excel. If this is not permissible in the final project, I will fix this.</p>
 <p>I began by downloading information on race, education, income, poverty, age, and urban/rural status for all counties in the United States. I used the 2023 American Community survey for all topics except urban/rural status, for which only 2020 was available. Connecticut recently changed its counties into “planning regions” so there is discontinuity from 2021 onward that will hinder joining to religion data later on. So for Connecticut, I used the 2021 ACS.</p>
-<p>The following tables were downloaded: - B01002: Median Age by Sex (2019-2023 ACS) - B03002: Hispanic or Latino Origin by Race (2019-2023 ACS) - B15003: Educational Attainment for the Population 25 and Older (2019-2023 ACS) - B19013: Median Household Income in the Past 12 Months (2019-2023 ACS) - C17002: Ratio of Income to Poverty Level in the Past 12 Months (2019-2023 ACS) - P2: Urban and Rural (2020 Decennial Census)</p>
+<p>The following tables were downloaded:</p>
+<ul>
+<li>B01002: Median Age by Sex (2019-2023 ACS)</li>
+<li>B03002: Hispanic or Latino Origin by Race (2019-2023 ACS)</li>
+<li>B15003: Educational Attainment for the Population 25 and Older (2019-2023 ACS)</li>
+<li>B19013: Median Household Income in the Past 12 Months (2019-2023 ACS)</li>
+<li>C17002: Ratio of Income to Poverty Level in the Past 12 Months (2019-2023 ACS)</li>
+<li>P2: Urban and Rural (2020 Decennial Census)</li>
+</ul>
 <p>Because each sheet had the same number of columns (all counties were organized in the same way), they could easily just be copy-and-pasted into one giant sheet with no problems.</p>
 <p>Because raw numbers were given in the spreadsheet for each demographic, I had to convert them all into proportions of the total population. Final column values represent: - Total median age - Percentage of total population that is White, Black, Asian, Native American, Pacific Islander, Other Race, Multiracial, and Hispanic - Percentage of those 25 and older who have: received no schooling, been educated up to middle school, high school but no diploma, high school diploma, associate’s degree, bachelor’s degree, post-bachelor’s degree - Percentage of households with incomes: Below 15K, 15-30K, 30-60K, 60-100K, 100-150K, 150-200K, and Over 200K - Percentage of people with incomes: below half of the poverty line, and 50-100% of the poverty line - Percentage of the population in urbanized areas</p>
 <div class="cell">
@@ -807,6 +815,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
+<section id="cleaning-religion-data" class="level1">
+<h1>Cleaning Religion Data</h1>
+</section>
+<section id="loading-pew-and-prri-polling-data" class="level1">
+<h1>Loading Pew and PRRI Polling Data</h1>
+</section>
+<section id="loading-state--and-metro--level-socioeconomic-data-for-model-training" class="level1">
+<h1>Loading State- and Metro- Level Socioeconomic Data for Model Training</h1>
+</section>
+<section id="variable-importance" class="level1">
+<h1>Variable Importance</h1>
+</section>
+<section id="predicting-county-level-rwa" class="level1">
+<h1>Predicting County-Level RWA</h1>
+</section>
 <section id="results" class="level1">
 <h1>Results</h1>
 <p>[~200 words]</p>
@@ -921,7 +944,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/miamai77\.github\.io\/511______final\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
