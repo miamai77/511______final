@@ -158,6 +158,7 @@ leaflet() %>%
 ```
 
 # Cleaning Religion Data
+It appears that there are many outliers in religious adherence values, with some being suspiciously high, even higher than county populations. This may pose problems for modeling Right Wing Authoritarianism in the future.  I will confine values to be within a certain number of z-scores from the mean of all counties.
 
 # Loading Pew and PRRI Polling Data
 
